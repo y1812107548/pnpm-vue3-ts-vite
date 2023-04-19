@@ -1,0 +1,9 @@
+{
+  "recommendations": ["Vue.volar", "Vue.vscode-typescript-vue-plugin"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
