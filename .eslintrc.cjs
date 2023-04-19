@@ -8,7 +8,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:vue/vue3-essential',
         'plugin:@typescript-eslint/recommended',
-		'plugin:prettier/recommended'
+		'plugin:prettier/recommended' // 处理prettier和eslint兼容
     ],
     'overrides': [],
     'parser': 'vue-eslint-parser',
