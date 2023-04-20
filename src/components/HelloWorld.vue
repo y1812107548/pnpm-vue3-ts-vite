@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { NButton } from 'naive-ui'
+import { NButton } from 'naive-ui';
 defineProps<{ msg: string }>();
 
 const count = ref(0);
@@ -26,6 +26,4 @@ const count = ref(0);
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,10 +1,10 @@
-import { defineStore } from 'pinia'
-import { UserInfo } from '#/store'
+import { defineStore } from 'pinia';
+import { UserInfo } from '#/store';
 
 interface State {
-  userInfo: UserInfo
-  token: string,
-  cookie?:string
+  userInfo: UserInfo;
+  token: string;
+  cookie?: string;
 }
 
 const useUserStore = defineStore('userStore', {
@@ -15,13 +15,13 @@ const useUserStore = defineStore('userStore', {
         userId: ''
       },
       token: ''
-    }
+    };
   },
   actions: {
     changeUserName(userInfo: UserInfo) {
-      this.userInfo = userInfo
+      this.userInfo = userInfo;
     }
   }
-})
+});
 
-export default useUserStore
+export default useUserStore;

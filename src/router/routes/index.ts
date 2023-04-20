@@ -1,26 +1,26 @@
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router';
 
 // 获取modules中的路由规则
 // https://cn.vitejs.dev/guide/features.html#glob-import
-const modules = import.meta.glob('./modules/**/*.ts',{eager:true})
+const modules = import.meta.glob('./modules/**/*.ts', { eager: true });
 console.log(modules);
 
 // modules routes
-const routes: RouteRecordRaw[] = []
-  
+const routes: RouteRecordRaw[] = [];
+
 Object.keys(modules).forEach((key) => {
   //@ts-ignore
-  const mod = modules[key].default || {}
-  const modList = Array.isArray(mod) ? [...mod] : [mod]
-  routes.push(...modList)
-})
+  const mod = modules[key].default || {};
+  const modList = Array.isArray(mod) ? [...mod] : [mod];
+  routes.push(...modList);
+});
 
 // 根目录
 const rootRoute: RouteRecordRaw = {
   path: '/',
   name: 'root',
   redirect: '/home'
-}
+};
 
 // 404页面
 const notFoundPage: RouteRecordRaw = {
@@ -29,6 +29,6 @@ const notFoundPage: RouteRecordRaw = {
   path: '/:pathMatch(.*)*',
   name: '404',
   component: () => import('@/views/common/404Page.vue')
-}
+};
 
-export default [rootRoute, ...routes, notFoundPage]
+export default [rootRoute, ...routes, notFoundPage];
