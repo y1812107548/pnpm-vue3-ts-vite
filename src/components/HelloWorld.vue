@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import { NButton } from 'naive-ui'
 defineProps<{ msg: string }>();
 
 const count = ref(0);
@@ -10,7 +10,7 @@ const count = ref(0);
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <n-button @click="count++">count is {{ count }}</n-button>
     <p>Edit<code>components/HelloWorld.vue</code> to test HMR</p>
   </div>
 
@@ -27,7 +27,5 @@ const count = ref(0);
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
+
 </style>

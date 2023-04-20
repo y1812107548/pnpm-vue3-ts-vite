@@ -17,5 +17,7 @@ module.exports = {
     insertPragma: false,// 不需要自动在文件开头插入 @prettier
     proseWrap: 'preserve',// 使用默认的折行标准
     htmlWhitespaceSensitivity: 'css',// 根据显示样式决定 html 要不要折行
-    endOfLine: 'auto'// 换行符使用 lf
-}; 
+    endOfLine: 'auto',// 换行符使用 lf
+    embeddedLanguageFormatting: 'auto',// 格式化嵌入的内容
+    singleAttributePerLine: false,// html, vue, jsx 中每个属性占一行
+};
