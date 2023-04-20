@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --open --cors --force",
+    "dev": "vite --host --open --cors",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
@@ -28,6 +28,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.10.0",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "sass": "^1.61.0",
@@ -35,5 +36,15 @@
     "vite": "^4.2.0",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^1.2.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add ."
+    ]
   }
 }
