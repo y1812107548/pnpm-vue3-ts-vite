@@ -24,7 +24,6 @@ module.exports = {
     'rules': {
         'indent': 'off',
         'vue/multi-word-component-names':'off',// 关闭是否驼峰的校验
-        'semi': ['warn','always'],
         '@typescript-eslint/ban-ts-ignore': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
@@ -37,7 +36,6 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         // 'no-var': 'error',
-        // // 'prettier/prettier': 'error',
         'no-console': 'warn',// 禁止出现console
         'no-debugger': 'warn',// 禁用debugger
         'no-duplicate-case': 'warn',// 禁止出现重复的 case 标签
