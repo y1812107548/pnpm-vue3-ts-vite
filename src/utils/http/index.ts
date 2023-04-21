@@ -34,17 +34,17 @@ service.interceptors.response.use(
 
     // 根据返回的http状态码做不同的处理，比如错误提示等 TODO
     switch (status) {
-    case 401:
-      // 鉴权失败
-      break;
-    case 403:
+      case 401:
+        // 鉴权失败
+        break;
+      case 403:
         // 没有权限
-      break;
-    case 500:
-      // 服务端错误
+        break;
+      case 500:
+        // 服务端错误
         break;
 
-    default:
+      default:
         break;
     }
 
