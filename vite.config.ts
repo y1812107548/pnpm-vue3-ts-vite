@@ -1,4 +1,4 @@
-import { defineConfig,loadEnv } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { normalizePath } from 'vite';
 import { resolve } from 'path';
@@ -8,7 +8,7 @@ import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 const variablePath = normalizePath(resolve(__dirname, './src/style/variable.scss'));
 // https://vitejs.dev/config/
-export default ({command,mode})=> {
+export default ({ command, mode }) => {
   const env: Partial<ImportMeta> = loadEnv(mode, process.cwd());
   console.log(env);
   return defineConfig({
@@ -67,4 +67,4 @@ export default ({command,mode})=> {
       }
     }
   });
-}
+};
