@@ -35,7 +35,7 @@ module.exports = {
             'warn',
             'always'
         ],
-        'prettier/prettier':'off',
+        'prettier/prettier':'warn',
         'vue/multi-word-component-names':'off',// 关闭是否驼峰的校验
         // '@typescript-eslint/ban-ts-ignore': 'off',
         // '@typescript-eslint/no-unused-vars': 'off',

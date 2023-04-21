@@ -12,7 +12,7 @@
       <n-button type="error"> Error </n-button>
     </n-space>
     <n-dropdown trigger="hover" :options="options" @select="handleSelect">
-      <n-button>找个地方休息</n-button>
+      <n-button>找个地方休息 </n-button>
     </n-dropdown>
   </div>
 </template>
@@ -28,7 +28,7 @@ const options = reactive([
   },
   {
     label: '布朗酒店，伦敦',
-    key: 'brown\'s hotel, london'
+    key: "brown's hotel, london"
   },
   {
     label: '亚特兰蒂斯巴哈马，拿骚',
