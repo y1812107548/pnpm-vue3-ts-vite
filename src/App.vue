@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { zhCN, dateZhCN, GlobalThemeOverrides } from 'naive-ui';
-import { darkTheme } from 'naive-ui';
-import type { GlobalTheme } from 'naive-ui';
+import { ref } from "vue";
+import { zhCN, dateZhCN, GlobalThemeOverrides } from "naive-ui";
+import { darkTheme } from "naive-ui";
+import type { GlobalTheme } from "naive-ui";
 const theme = ref<GlobalTheme | null>(null);
 const themeOverrides: GlobalThemeOverrides = {
   common: {
-    primaryColor: '#4098fc'
-  },
-  Button: {
-    textColor: '#4098fc'
+    primaryColor: "#4098fc",
+    primaryColorHover: "#4098fc",
+    primaryColorPressed: "#4098fc"
+    // primaryColorSuppl: '#4098fc'
   }
 };
 </script>

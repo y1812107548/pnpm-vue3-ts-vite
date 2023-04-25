@@ -22,32 +22,23 @@ module.exports = {
         '@typescript-eslint',
     ],
     'rules': {
-        'indent': [
-            'warn',
-            2
-        ],
+        'indent': ['warn',2],
         'linebreak-style': 'off',
-        'quotes': [
-            'warn',
-            'single'
-        ],
-        'semi': [
-            'warn',
-            'always'
-        ],
+        'quotes': ['warn','double'],
+        'semi': ['warn','always'],
         'prettier/prettier':'warn',
         'vue/multi-word-component-names':'off',// 关闭是否驼峰的校验
-        // '@typescript-eslint/ban-ts-ignore': 'off',
-        // '@typescript-eslint/no-unused-vars': 'off',
-        // '@typescript-eslint/explicit-function-return-type': 'off',
-        // '@typescript-eslint/no-explicit-any': 'off',
-        // '@typescript-eslint/no-var-requires': 'off',
-        // '@typescript-eslint/no-empty-function': 'off',
-        // '@typescript-eslint/no-use-before-define': 'off',
-        // '@typescript-eslint/ban-ts-comment': 'off',
-        // '@typescript-eslint/ban-types': 'off',
-        // '@typescript-eslint/no-non-null-assertion': 'off',
-        // '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/ban-ts-ignore': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         // // 'no-var': 'error',
         // 'no-console': 'warn',// 禁止出现console
         // 'no-debugger': 'warn',// 禁用debugger
