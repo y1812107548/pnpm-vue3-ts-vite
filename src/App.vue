@@ -8,8 +8,8 @@ const themeOverrides: GlobalThemeOverrides = {
   common: {
     primaryColor: "#4098fc",
     primaryColorHover: "#4098fc",
-    primaryColorPressed: "#4098fc"
-    // primaryColorSuppl: '#4098fc'
+    primaryColorPressed: "#4098fc",
+    primaryColorSuppl: "#4098fc"
   }
 };
 </script>
