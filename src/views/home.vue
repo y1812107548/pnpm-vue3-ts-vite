@@ -14,11 +14,11 @@
       </n-input-group>
       {{ answer }}
     </n-card>
-    <HelloWorld :[attributeName]="msg" :title="title" />
+    <HelloWorld :[attributeName]="msg" :title="title" @some-event="someEvent" />
     <!-- <n-dropdown trigger="hover" :options="options" @[eventName]="handleSelect">
       <n-button>找个地方休息 </n-button>
     </n-dropdown> -->
-    <n-card>
+    <n-card title="父组件使用子组件的方法">
       <n-button @click="openDialog">打开模态框</n-button>
     </n-card>
     <CustomDialog ref="modal"></CustomDialog>
@@ -76,6 +76,9 @@ const handleSearch = (e: Event) => {
 };
 const openDialog = () => {
   modal.value?.open();
+};
+const someEvent = (value: string) => {
+  title.value = value;
 };
 console.log("msg:", msg.value);
 </script>
