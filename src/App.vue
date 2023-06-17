@@ -21,12 +21,14 @@ const themeOverrides: GlobalThemeOverrides = {
     :theme="theme"
     :theme-overrides="themeOverrides"
   >
-    <n-space>
-      <n-button @click="theme = darkTheme">深色</n-button>
-      <n-button @click="theme = null"> 浅色</n-button>
-    </n-space>
-    <RouterView />
-    <n-global-style />
+    <n-message-provider>
+      <n-space>
+        <n-button @click="theme = darkTheme">深色</n-button>
+        <n-button @click="theme = null"> 浅色</n-button>
+      </n-space>
+      <RouterView />
+      <n-global-style />
+    </n-message-provider>
   </n-config-provider>
 </template>
 

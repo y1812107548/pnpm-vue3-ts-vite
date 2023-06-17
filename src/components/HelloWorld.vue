@@ -5,6 +5,7 @@ export interface Props {
   msg: string;
   title: string | number;
 }
+
 // defineProps<{ msg: string,title:string | number }>();
 const props = withDefaults(defineProps<Props>(), {
   msg: "hello vite",
@@ -62,21 +63,7 @@ const fullName = computed({
     <n-button @click="increment(-1)">-</n-button>
     {{ state.count }}
     <n-button @click="increment(1)">+</n-button>
-    <p>Edit<code>components/HelloWorld.vue</code> to test HMR</p>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the
-    official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
-
-  <p>has published books:{{ publicshedBooksMessage }}</p>
 </template>
 
 <style scoped></style>

@@ -15,13 +15,18 @@
       {{ answer }}
     </n-card>
     <HelloWorld :[attributeName]="msg" :title="title" />
-    <n-dropdown trigger="hover" :options="options" @[eventName]="handleSelect">
+    <!-- <n-dropdown trigger="hover" :options="options" @[eventName]="handleSelect">
       <n-button>找个地方休息 </n-button>
-    </n-dropdown>
+    </n-dropdown> -->
+    <n-card>
+      <n-button @click="openDialog">打开模态框</n-button>
+    </n-card>
+    <CustomDialog ref="modal"></CustomDialog>
   </div>
 </template>
 
 <script setup lang="ts">
+import CustomDialog from "@/components/CustomDialog.vue";
 import { ref, reactive, watch } from "vue";
 const msg = ref<string>(
   "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse quidem sint id, similique saepe voluptates placeat aperiam tempora in modi aliquid totam perspiciatis vero doloribus quia cumque omnis corrupti! Reprehenderit?"
@@ -50,6 +55,7 @@ const options = reactive([
     key: "the beverly hills hotel, los angeles"
   }
 ]);
+const modal = ref<InstanceType<typeof CustomDialog> | null>(null);
 // 可以直接侦听一个 ref
 watch(inputValue, async (newQuestion, oldQuestion) => {
   if (newQuestion.indexOf("?") > -1) {
@@ -67,6 +73,9 @@ const handleSelect = (key: string | number) => {
 };
 const handleSearch = (e: Event) => {
   console.log(e);
+};
+const openDialog = () => {
+  modal.value?.open();
 };
 console.log("msg:", msg.value);
 </script>
