@@ -20,8 +20,9 @@
     </n-dropdown> -->
     <n-card title="父组件使用子组件的方法">
       <n-button @click="openDialog">打开模态框</n-button>
+      <h2>{{ modalTitle }}</h2>
     </n-card>
-    <CustomDialog ref="modal"></CustomDialog>
+    <CustomDialog ref="modal" v-model:title.capitalize="modalTitle"></CustomDialog>
   </div>
 </template>
 
@@ -56,6 +57,7 @@ const options = reactive([
   }
 ]);
 const modal = ref<InstanceType<typeof CustomDialog> | null>(null);
+const modalTitle = ref<string>("默认弹窗的标题");
 // 可以直接侦听一个 ref
 watch(inputValue, async (newQuestion, oldQuestion) => {
   if (newQuestion.indexOf("?") > -1) {
