@@ -77,7 +77,11 @@ const handleSelect = (key: string | number) => {
 const handleSearch = (e: Event) => {
   console.log(e);
 };
+/**
+ * Opens the dialog.
+ */
 const openDialog = () => {
+  // Call the open method on the modal if it exists.
   modal.value?.open();
 };
 const someEvent = (value: string) => {
