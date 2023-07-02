@@ -9,10 +9,13 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Carousel: typeof import('./src/components/Carousel.vue')['default']
     CustomDialog: typeof import('./src/components/CustomDialog.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
+    NCarousel: typeof import('naive-ui')['NCarousel']
+    NCarouselItem: typeof import('naive-ui')['NCarouselItem']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDropdown: typeof import('naive-ui')['NDropdown']
     NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
@@ -20,6 +23,8 @@ declare module '@vue/runtime-core' {
     NInputGroup: typeof import('naive-ui')['NInputGroup']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NModal: typeof import('naive-ui')['NModal']
+    NRadioButton: typeof import('naive-ui')['NRadioButton']
+    NRadioGroup: typeof import('naive-ui')['NRadioGroup']
     NSpace: typeof import('naive-ui')['NSpace']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

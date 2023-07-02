@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Carousel></Carousel>
     <n-card title="搜索结果" v-if="answer">
       <n-input-group>
         <n-button type="primary"> 搜索 </n-button>
