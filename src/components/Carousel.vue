@@ -41,6 +41,8 @@
 
 <script lang="ts" setup>
 import { ref, computed } from "vue";
+import { useUserStore } from "@/store/modules/user";
+
 const effectRef = ref<"slide" | "fade" | "card">("slide");
 const isCard = computed(() => effectRef.value === "card");
 const effects = ["slide", "fade", "card"];
