@@ -589,6 +589,237 @@ function getBear() {
 
 // type T3 = Exclude<Shape, { kind: "circle" }>
 // //    ^?
+
+// interface SearchFunction {
+//   (query: string): string[];
+// }
+
+// let mySearch: SearchFunction = function(query: string): string[] {
+//   return [query];
+// }
+// console.log(mySearch("hello"));
+
+// interface Shape {
+//   color: string;
+// }
+
+// interface PenStroke {
+//   penWidth:number;
+// }
+
+// interface Square extends Shape, PenStroke {
+//   sideLength: number;
+// }
+
+// let square:Square = {
+//   color: "blue",
+//   sideLength: 10,
+//   penWidth: 5
+// }
+// function myAdd<T>(a: T, b: T): T {
+//   return a + b;
+// }
+
+// interface Card {
+//     suit: string;
+//     card: number;
+// }
+
+// interface Deck {
+//     suits: string[];
+//     cards: number[];
+//     createCardPicker(this: Deck): () => Card;
+// }
+
+// let deck: Deck = {
+//     suits: ["hearts", "spades", "clubs", "diamonds"],
+//     cards: Array(52),
+//     // NOTE: The function now explicitly specifies that its callee must be of type Deck
+//     createCardPicker: function(this: Deck) {
+//         return ()=> {
+//             let pickedCard = Math.floor(Math.random() * 52);
+//             let pickedSuit = Math.floor(pickedCard / 13);
+
+//             return {suit: this.suits[pickedSuit], card: pickedCard % 13};
+//         }
+//     }
+// }
+
+// let cardPicker = deck.createCardPicker();
+// let pickedCard = cardPicker();
+
+// alert("card: " + pickedCard.card + " of " + pickedCard.suit);
+
+// @errors: 2345
+// type NetworkLoadingState = { state: "loading" };
+// type NetworkFailedState = { state: "failed"; code: number };
+// type NetworkSuccessState = { state: "success" };
+// type NetworkFromCachedState = { state: "from_cache" };
+
+// type NetworkState =
+//   | NetworkLoadingState
+//   | NetworkFailedState
+//   | NetworkSuccessState
+//   | NetworkFromCachedState;
+// // ---cut---
+// function assertNever(x: never): never {
+//   throw new Error("Unexpected object: " + x);
+// }
+
+// function logger(s: NetworkState): string {
+//   switch (s.state) {
+//     case "loading":
+//       return "loading request";
+//     case "failed":
+//       return `failed with code ${s.code}`;
+//     case "success":
+//       return "got response";
+//     case "from_cache":
+//       return "from cache";
+//     default:
+//       return assertNever(s);
+//   }
+// }
+
+// function loggingIdentity<T>(arg:T[]): T[] {
+//   // if(typeof arg === "string"){
+//     console.log(arg.length);  // Error: T doesn't have .length
+//   // }
+//   return arg;
+// }
+
+// function identity<T>(arg: T): T {
+//     return arg;
+// }
+
+// let myIdentity: { <T>(arg: T): T} = identity;
+
+// interface GenericIdentityFn<T> {
+//   <T>(arg: T): T
+// }
+
+// function identityFn<T>(arg: T): T {
+//   return arg;
+// }
+
+// let myIdentity: GenericIdentityFn<boolean> = identityFn
+
+// interface Lengthwise {
+//   length: number;
+// }
+
+// function loggingIdentity<T extends Lengthwise>(arg: T): T {
+//   console.log(arg.length);
+//   return arg;
+// }
+
+// loggingIdentity()
+
+// function getProperty<T, K extends keyof T>(obj: T, key: K) {
+//   return obj[key];
+// }
+
+// let x = { a: 1, b: 2, c: 3, d: 4 };
+// console.log(getProperty(x, 'a'));
+
+// function create<T>(c:{ new(): T}): T {
+//   return new c();
+// }
+// interface Person {
+//   name: string;
+//   age: number;
+// }
+
+// class BeeKeeper {
+//     hasMask: boolean;
+//     constructor() {
+//         this.hasMask = true;
+//     }
+// }
+
+// class ZooKeeper {
+//     nametag: string;
+//     constructor() {
+//         this.nametag = "default";
+//     }
+// }
+
+// class Animal {
+//     numLegs: number;
+//     constructor() {
+//         this.numLegs = 4;
+//     }
+// }
+
+// class Bee extends Animal {
+//     keeper: BeeKeeper;
+//     constructor() {
+//         super();
+//         this.keeper = new BeeKeeper();
+//     }
+// }
+
+// class Lion extends Animal {
+//     keeper: ZooKeeper;
+//     constructor() {
+//         super();
+//         this.keeper = new ZooKeeper();
+//     }
+// }
+
+// function createInstance<A extends Animal>(c: new () => A): A {
+//     return new c();
+// }
+
+// createInstance(Lion).keeper.nametag;  // typechecks!
+// createInstance(Bee).keeper.hasMask;   // typechecks!
+
+// interface Article {
+//     title: string;
+//     content: string;
+//     tags: string;
+//     author: string;
+//     date:Date;
+//     readCounte: number;
+// }
+
+// type ArticlePreview = Pick<Article, "title" | "content">
+// // 泛型工具函数可选属性
+// type Optional<T,K extends keyof T> = Omit<T,K> & Partial<Pick<T,K>>
+
+// type CreateArticleOptions = Optional<Article, "author" | "date" | "readCounte">
+
+// function createArticle(options:CreateArticleOptions){}
+
+// interface ComplexObject{
+//   mandatory: string;
+//   optional?: string;
+//   optional1?:boolean
+// }
+// // 泛型工具函数获取可选的字段
+// type GetOptional<T> = {
+//   [P in keyof T as T[P] extends Required<T>[P] ? never : P]: T[P];
+// }
+
+// type Optionals  = GetOptional<ComplexObject>
+// let keys:GetOptional<ComplexObject>
+
+type Watcher<T> = {
+  on<K extends string & keyof T >(eventName: `${K}Changed`, callback: (oldValue: T[K], newValue: T[K ]) => void): void;
+}
+
+declare function watch<T>(obj: T): Watcher<T>;
+
+const personWatcher = watch({
+  name: "张三",
+  age: 12,
+  gender: "male",
+  address: {}
+});
+
+personWatcher.on("ageChanged", (oldValue, newValue) => {
+  console.log(oldValue, newValue);
+});
 </script>
 
 <style scoped></style>

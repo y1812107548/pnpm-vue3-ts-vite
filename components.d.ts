@@ -21,7 +21,6 @@ declare module '@vue/runtime-core' {
     NCarousel: typeof import('naive-ui')['NCarousel']
     NCarouselItem: typeof import('naive-ui')['NCarouselItem']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
-    NDropdown: typeof import('naive-ui')['NDropdown']
     NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
     NInput: typeof import('naive-ui')['NInput']
     NInputGroup: typeof import('naive-ui')['NInputGroup']
@@ -32,7 +31,6 @@ declare module '@vue/runtime-core' {
     NSpace: typeof import('naive-ui')['NSpace']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Search: typeof import('./src/components/Search.vue')['default']
     SearchInput: typeof import('./src/components/SearchInput.vue')['default']
   }
 }
