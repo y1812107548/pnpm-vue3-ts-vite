@@ -7,8 +7,8 @@
     "dev": "vite --host --open --cors",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
-    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.cjs,.json,.md --fix",
+    "format": "prettier --write \"./**/*.{html,vue,ts,js,jsx,json,md,cjs}\"",
     "prepare": "husky install"
   },
   "dependencies": {

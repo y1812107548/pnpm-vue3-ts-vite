@@ -1,28 +1,28 @@
-import { defineConfig, loadEnv } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { normalizePath } from 'vite';
-import { resolve } from 'path';
-import autoprefixer from 'autoprefixer';
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-const variablePath = normalizePath(resolve(__dirname, './src/style/variable.scss'));
+import { defineConfig, loadEnv } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { normalizePath } from "vite";
+import { resolve } from "path";
+import autoprefixer from "autoprefixer";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+const variablePath = normalizePath(resolve(__dirname, "./src/style/variable.scss"));
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
   const env: Partial<ImportMeta> = loadEnv(mode, process.cwd());
   console.log(env);
   return defineConfig({
-    base: './',
+    base: "./",
     optimizeDeps: {
       force: true // 忽略缓存强制刷新
     },
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src'),
-        '#': resolve(__dirname, './src/types'),
-        utils: resolve(__dirname, './src/utils'),
-        api: resolve(__dirname, './src/api')
+        "@": resolve(__dirname, "./src"),
+        "#": resolve(__dirname, "./src/types"),
+        utils: resolve(__dirname, "./src/utils"),
+        api: resolve(__dirname, "./src/api")
       }
     },
     server: {
@@ -33,15 +33,15 @@ export default ({ command, mode }) => {
       vue(),
       AutoImport({
         imports: [
-          'vue',
+          "vue",
           {
-            'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
+            "naive-ui": ["useDialog", "useMessage", "useNotification", "useLoadingBar"]
           }
         ],
-        resolvers: [NaiveUiResolver(),ElementPlusResolver()]
+        resolvers: [NaiveUiResolver(), ElementPlusResolver()]
       }),
       Components({
-        resolvers: [NaiveUiResolver(),ElementPlusResolver()]
+        resolvers: [NaiveUiResolver(), ElementPlusResolver()]
       })
     ],
     css: {
@@ -53,13 +53,13 @@ export default ({ command, mode }) => {
       postcss: {
         plugins: [
           autoprefixer({
-            overrideBrowserslist: ['Chrome > 40', 'ff > 31', 'ie 11']
+            overrideBrowserslist: ["Chrome > 40", "ff > 31", "ie 11"]
           })
         ]
       }
     },
     build: {
-      minify: 'terser',
+      minify: "terser",
       terserOptions: {
         // 去掉生产console和debugger
         compress: {

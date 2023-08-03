@@ -19,7 +19,7 @@
       "utils/*": ["src/utils/*"],
       "api/*": ["src/api/*"]
     },
-    "types": ["naive-ui/volar","element-plus/global"]
+    "types": ["naive-ui/volar", "element-plus/global"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

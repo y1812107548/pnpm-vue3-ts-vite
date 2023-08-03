@@ -1,21 +1,27 @@
 <template>
-  <h1>测试登录</h1>
+  <div>
+    <h1 class="highlight">测试登录</h1>
+    {{ useTest }}
+    <button @click="changeTest">自增一</button>
+    <Test></Test>
+  </div>
 </template>
 
 <script setup lang="ts">
-const num = 123;
-interface Animal {
-  name: string;
-}
-interface Bear extends Animal {
-  honey: boolean;
-}
-function getBear() {
-  return {
-    name: "22",
-    honey: true
-  };
-}
+import { useTest, changeTest } from "./test";
+// const num = 123;
+// interface Animal {
+//   name: string;
+// }
+// interface Bear extends Animal {
+//   honey: boolean;
+// }
+// function getBear() {
+//   return {
+//     name: "22",
+//     honey: true
+//   };
+// }
 // const bear:Bear = getBear()
 // // const x = "hello" as number;
 
@@ -232,7 +238,6 @@ function getBear() {
 
 // type Point = { x: number; y: number };
 // type P = keyof Point;
-
 // interface Backpack<T> {
 //   add:(obj:T)=>void,
 //   get:()=>T
@@ -370,19 +375,6 @@ function getBear() {
 // myForEach([1, 2, 3], (a, i) => {
 //   console.log(i!.toFixed());
 // });
-
-// function makeDate(timestamp: number): Date;
-// function makeDate(m: number, d: number, y: number): Date;
-// function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
-//   if (d !== undefined && y !== undefined) {
-//     return new Date(y, mOrTimestamp, d);
-//   } else {
-//     return new Date(mOrTimestamp);
-//   }
-// }
-// const d1 = makeDate(12345678);
-// const d2 = makeDate(5, 5, 5);
-// // const d3 = makeDate(1, 3, );
 
 // interface User {
 //   id: number;
@@ -804,22 +796,59 @@ function getBear() {
 // type Optionals  = GetOptional<ComplexObject>
 // let keys:GetOptional<ComplexObject>
 
-type Watcher<T> = {
-  on<K extends string & keyof T >(eventName: `${K}Changed`, callback: (oldValue: T[K], newValue: T[K ]) => void): void;
+// type Watcher<T> = {
+//   on<K extends string & keyof T >(eventName: `${K}Changed`, callback: (oldValue: T[K], newValue: T[K ]) => void): void;
+// }
+
+// declare function watch<T>(obj: T): Watcher<T>;
+
+// const personWatcher = watch({
+//   name: "张三",
+//   age: 12,
+//   gender: "male",
+//   address: {}
+// });
+
+// personWatcher.on("ageChanged", (oldValue, newValue) => {
+//   console.log(oldValue, newValue);
+// });
+
+// 函数重载
+// function makeDate(timestamp: number): Date;
+// function makeDate(m: number, d: number, y: number): Date;
+
+// function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
+//   if (d !== undefined && y !== undefined) {
+//     return new Date(y, mOrTimestamp, d);
+//   } else {
+//     return new Date(mOrTimestamp);
+//   }
+// }
+// const d1 = makeDate(12345678);
+// const d2 = makeDate(5, 5, 5);
+// const d3 = makeDate(1, 3);
+
+// 装饰器常见用法
+
+// function logParameter(target: any, methodName: string, parameterIndex: number) {
+//   console.log(`Parameter at index ${parameterIndex} of method ${methodName} is being logged.`);
+// }
+
+// class MyClass {
+//   myMethod(@logParameter param1: string) {
+//     // Method implementation
+//   }
+// }
+
+enum UseMap {
+  GET,
+  POST,
+  PUT,
+  DELETE,
+  OPTIONS
 }
 
-declare function watch<T>(obj: T): Watcher<T>;
-
-const personWatcher = watch({
-  name: "张三",
-  age: 12,
-  gender: "male",
-  address: {}
-});
-
-personWatcher.on("ageChanged", (oldValue, newValue) => {
-  console.log(oldValue, newValue);
-});
+console.log(UseMap.GET);
 </script>
 
 <style scoped></style>
